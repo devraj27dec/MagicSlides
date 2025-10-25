@@ -1,9 +1,13 @@
-import Image from "next/image";
+import Header from "./components/Header";
+import Mails from "./components/Mails";
+
 
 export default function Home() {
   return (
-    <div className="flex justify-center p-2 text-3xl">
-      Hello! Welcome to MagicSlides App🚀
+    <div className=" px-10 py-6 min-h-screen">
+      <Header />
+
+      <Mails/>
     </div>
   );
 }
