@@ -32,7 +32,6 @@ export const authOptions: AuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
         async jwt({ token, account }) {
-            // On first sign-in, store access & refresh token in JWT
             if (account) {
                 token.accessToken = account.access_token;
                 token.refreshToken = account.refresh_token;
@@ -41,7 +40,6 @@ export const authOptions: AuthOptions = {
             return token;
         },
         async session({ session, token }) {
-            // Make access token available in session
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (session as any).accessToken = token.accessToken;
             return session;

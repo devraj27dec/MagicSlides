@@ -1,12 +1,12 @@
-
-
 "use client";
 import { X } from "lucide-react";
+import { getCategoryColor } from "../lib";
+
 export interface Email {
   id: string;
   snippet: string;
   labelIds: string[];
-  category:string
+  category: string;
 }
 
 type MailSidebarProps = {
@@ -45,14 +45,24 @@ export default function MailDetailSidebar({
           </button>
         </div>
 
-        <div className="p-4 text-sm text-gray-700 dark:text-gray-300">
-          {/* <p><strong>Mail ID:</strong> {email.id}</p> */}
-          <p>{email.labelIds.filter((label) => label.startsWith("CATEGORY_"))}</p>
-          <p>{email.snippet}</p>
+        <div className="p-4 flex flex-col space-y-2">
+          <div className="flex justify-between items-center">
+            <p className="text-xl text-white">
+              {email.labelIds
+                .filter((label) => label.startsWith("CATEGORY_"))
+                .join(", ")}
+            </p>
+            <span
+              className={`text-xs font-semibold px-2 py-1 rounded-full border ${getCategoryColor(
+                email.category
+              )}`}
+            >
+              {email.category}
+            </span>
+          </div>
 
-        
-
-          {/* <p className="mt-2">You can show classification results or details here.</p> */}
+          {/* Snippet below */}
+          <p className="text-sm text-gray-100">{email.snippet}</p>
         </div>
       </div>
     </>

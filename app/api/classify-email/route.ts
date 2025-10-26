@@ -4,18 +4,23 @@ export async function POST(req: NextRequest) {
   try {
     const { emailText } = await req.json();
 
-    const prompt = `
-      Classify this email into one of these categories:
-      Job, Promotion, Spam, Social, Updates, Personal, Other.
-      
-      Email content:
-      """
-      ${emailText}
-      """
+     const prompt = `
+        Classify this email into one of the following categories:
 
-      Return only the category name.
-    `;
+        Important: Emails that are personal or work-related and require immediate attention.
+        Promotions: Emails related to sales, discounts, and marketing campaigns.
+        Social: Emails from social networks, friends, and family.
+        Marketing: Emails related to marketing, newsletters, and notifications.
+        Spam: Unwanted or unsolicited emails.
+        General: If none of the above are matched, use General.
 
+        Email content:
+        """
+        ${emailText}
+        """
+
+        Return only the category name exactly as listed above.
+        `;
     // Call Gemini API directly
     const response = await fetch(
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
@@ -45,7 +50,7 @@ export async function POST(req: NextRequest) {
 
     // Extract category text from Gemini response
     const category =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "Other";
+      data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "General";
 
     return NextResponse.json({ category });
   } catch (err: any) {

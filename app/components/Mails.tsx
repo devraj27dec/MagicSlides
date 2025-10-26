@@ -5,27 +5,10 @@ import axios from "axios";
 import { IoMdArrowDropupCircle, IoMdArrowDropdownCircle } from "react-icons/io";
 import { FaSearchPlus } from "react-icons/fa";
 import MailDetailSidebar, { Email } from "./MailDetailSidebar";
+import { getCategoryColor } from "../lib";
 
 
 
-const getCategoryColor = (category: string) => {
-  switch (category.toLowerCase()) {
-    case "job":
-      return "bg-green-100 text-green-700 border-green-300";
-    case "promotion":
-      return "bg-yellow-100 text-yellow-700 border-yellow-300";
-    case "spam":
-      return "bg-red-100 text-red-700 border-red-300";
-    case "social":
-      return "bg-blue-100 text-blue-700 border-blue-300";
-    case "updates":
-      return "bg-purple-100 text-purple-700 border-purple-300";
-    case "personal":
-      return "bg-pink-100 text-pink-700 border-pink-300";
-    default:
-      return "bg-gray-100 text-gray-700 border-gray-300";
-  }
-};
 
 
 export default function Mails() {
@@ -121,7 +104,7 @@ export default function Mails() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4 text-center">Gmail Messages</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center bg-[linear-gradient(187deg,rgba(255,255,255,1)_0%,rgba(21,93,252,1)_63%)] bg-clip-text text-transparent">Gmail Messages</h1>
       {!session && <p>Please sign in to view emails.</p>}
 
       <div className="flex justify-between text-white p-2 border mb-4">
@@ -191,7 +174,6 @@ export default function Mails() {
               <p className="text-sm text-gray-700">
                 {email.snippet || "No content"}
               </p>
-              
             </li> 
           ))
         ) : (
