@@ -5,7 +5,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 export default function Header() {
   const { data: session, status } = useSession();
 
-  console.log("session", session);
+  // console.log("session", session);
 
   return (
     <div className="border rounded-full py-2 px-4 flex justify-between items-center mx-auto">
