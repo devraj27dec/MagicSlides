@@ -50,12 +50,7 @@ export default function MailDetailSidebar({
           <p>{email.labelIds.filter((label) => label.startsWith("CATEGORY_"))}</p>
           <p>{email.snippet}</p>
 
-          <div className="mt-4">
-          <h3 className="font-semibold mb-2 text-gray-700">Email Body:</h3>
-          <p className="text-gray-700 whitespace-pre-wrap">
-            {email.bodyText || "No content available."}
-          </p>
-        </div>
+        
 
           {/* <p className="mt-2">You can show classification results or details here.</p> */}
         </div>
