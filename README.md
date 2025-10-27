@@ -1,6 +1,3 @@
-Absolutely! Here’s a **ready-to-copy README.md file** for your project. Just save it as `README.md` in your project root and replace the placeholder screenshots with your own images.
-
-````markdown
 # Gmail Email Viewer with Classification
 
 A **Next.js 15** application that fetches Gmail messages, classifies them using AI (Gemini API), and displays them in a user-friendly interface with Google login.  
@@ -21,20 +18,31 @@ A **Next.js 15** application that fetches Gmail messages, classifies them using 
 
 ## Screenshots
 
+> Place your screenshots inside `/public/screenshots/` folder:
+
+```
+/public
+  /screenshots
+    login.png
+    s1.png
+    s2.png
+```
+
+Then use these paths in the README:
+
 ### Login Screen
 
-![Login Screenshot](./screenshots/login.png)  
+![Login Screenshot](https://github.com/devraj27dec/MagicSlides/blob/main/public/screenshots/login.png)  
 
 ### Emails List
 
-![Emails Screenshot](./screenshots/s1.png)  
+![Emails Screenshot](https://github.com/devraj27dec/MagicSlides/blob/main/public/screenshots/s1.png)  
 
 ### Sidebar
 
-![User Dropdown Screenshot](./screenshots/s2.png)  
+![User Dropdown Screenshot](https://github.com/devraj27dec/MagicSlides/blob/main/public/screenshots/s2.png)  
 
 ---
-
 
 ## Setup Instructions
 
@@ -43,7 +51,7 @@ A **Next.js 15** application that fetches Gmail messages, classifies them using 
 ```bash
 git clone https://github.com/devraj27dec/MagicSlides.git
 cd MagicSlides
-````
+```
 
 ### 2. Install Dependencies
 
@@ -64,11 +72,10 @@ GOOGLE_CLIENT_SECRET=your_google_client_secret
 NEXT_PUBLIC_GEMINI_API_KEY=your_gemini_api_key
 ```
 
-> Get Google OAuth credentials from [Google Cloud Console](https://console.cloud.google.com/apis/credentials).
+> Get Google OAuth credentials from [Google Cloud Console](https://console.cloud.google.com/apis/credentials).  
 > Get Gemini API key from [Google Gemini API](https://developers.generativeai.google/).
 
 ---
-
 
 ### 4. Run the App
 
@@ -87,8 +94,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ```
 /components      # Reusable UI components (Avatar, UserDropdown, SkeletonEmail)
 /pages/api       # API routes (NextAuth, classify-email)
+/lib/authOptions # Authentication setup (authOptions.ts)
 /pages           # Frontend pages
-/public          # Public assets (default-avatar.png)
+/public          # Public assets (default-avatar.png, screenshots folder)
 /styles          # Tailwind CSS styles
 ```
 
@@ -106,18 +114,17 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Dependencies
 
-* **Next.js 15**
-* **NextAuth** (Google OAuth)
-* **Axios** (for Gmail API)
-* **Tailwind CSS**
-* **React Icons**
+- **Next.js 15**
+- **NextAuth** (Google OAuth)
+- **Axios** (for Gmail API)
+- **Tailwind CSS**
+- **React Icons**
 
 ---
 
 ## Notes
 
-* Emails are classified via Gemini API (Gemini 2.0 Flash).
-* If no category is found, `General` is assigned.
-* Skeletons improve perceived performance when fetching emails.
-
-
+- Emails are classified via Gemini API (Gemini 2.0 Flash).
+- If no category is found, `General` is assigned.
+- Skeletons improve perceived performance when fetching emails.
+- Screenshots must be placed in `/public/screenshots` and paths in README must start with `/screenshots/`.
