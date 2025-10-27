@@ -9,7 +9,7 @@ export const getCategoryColor = (category: string) => {
     case "marketing":
       return "bg-purple-100 text-purple-700 border-purple-300";
     case "spam":
-      return "bg-gray-100 text-gray-700 border-gray-300";
+      return "bg-red-500 text-gray-700 border-gray-300";
     case "general":
       return "bg-green-100 text-green-700 border-green-300";
     default:

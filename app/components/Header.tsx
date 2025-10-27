@@ -2,6 +2,7 @@
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Mail } from "lucide-react";
+import UserDropdown from "./Dropdown";
 
 export default function Header() {
   const { data: session, status } = useSession();
@@ -20,13 +21,20 @@ export default function Header() {
           <span>Loading...</span>
         ) : session ? (
           <div className="flex items-center gap-3">
-            <span className="text-white">{session.user?.name}</span>
+            {/* <span className="text-white">{session.user?.name}</span>
             <button
               className="p-2 bg-red-600 rounded-md text-white"
               onClick={() => signOut()}
             >
               Logout
-            </button>
+            </button> */}
+            <UserDropdown
+              email={session.user?.email}
+              name={session.user?.name}
+              avatarSize={20}
+              image={session.user?.image}
+              onLogout={() => signOut()}
+            />
           </div>
         ) : (
           <button
